@@ -4,13 +4,19 @@
 
 .App-header {
   background-color: lightseagreen;
-
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-
   align-items: center;
   font-size: calc(15px + 2vmin);
   color: white;
 
+}
+
+.topStyle{
+  background-color: skyblue;
+  color: black;
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
 }

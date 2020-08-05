@@ -20,8 +20,16 @@ class App extends React.Component {
         <header className="App-header">
             Hello World. My name is Mousta. Here is a simple weather app.
             <h1 span className= "topStyle"> Look up any zipcode below.  </h1>
-            <p> Click me to look up weather.</p>
-            <button onClick= {this.handleClick}> Look me up</button>
+
+            <form>
+              <label>
+                <h2>Input Zipcodes:</h2>
+                <input type = "text" name = "name" />
+              </label>
+              <input type = "submit" value = "Submit" />
+            </form>
+
+
         </header>
 
 

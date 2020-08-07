@@ -19,5 +19,5 @@
   display: flex;
   flex-wrap: wrap;
   text-align: center;
-  font-size: calc(45px + 3vmin);
+  font-size: calc(35px + 3vmin);
 }

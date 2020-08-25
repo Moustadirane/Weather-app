@@ -78,7 +78,17 @@ class App extends React.Component {
       let currMonth = months[d.getMonth()];
       let year = d.getFullYear();
 
-      return `${dayOfWeek} ${today} ${currMonth} ${year}`
+      if (today == 1 || today == 21 || today == 31){
+        today += "st";
+      } else if (today == 2 || today == 22){
+        today += "nd";
+      } else if (today == 3|| today == 23 ){
+        today += "rd";
+      } else {
+        today += "th";
+      }
+
+      return `${dayOfWeek} ${currMonth} ${today}, ${year}`
     }
 
     return (

@@ -31,8 +31,9 @@ class App extends React.Component {
     console.log(event.target.value);
 
     this.setState({
-      bendingStyle: event.target.value
+      //bendingStyle: event.target.value
       //userInput: event.target.value
+      key: event.target.value
     })
   }
 
@@ -42,6 +43,7 @@ class App extends React.Component {
 
   render(){
     const {bendingStyle} = this.state;
+    const {key} = this.state;
     const date = new Date();
     const hours = date.getHours();
     const mins = date.getMinutes();
@@ -65,6 +67,19 @@ class App extends React.Component {
       ampm = "p.m."
     }
 
+    const showDate = (d) => {
+      let months = ["January", "February", "March", "April", "May", "June", "July",
+      "August", "September", "October", "November", "December"]
+      let days = ["Sunday", "Monday", "Tuesday", "Wednesday",
+      "Thursday", "Friday", "Saturday"];
+
+      let dayOfWeek = days[d.getDay()];
+      let today = d.getDate();
+      let currMonth = months[d.getMonth()];
+      let year = d.getFullYear();
+
+      return `${dayOfWeek} ${today} ${currMonth} ${year}`
+    }
 
     return (
       <div className="App">
@@ -73,21 +88,23 @@ class App extends React.Component {
           <h1 span className= "topStyle"> Look up weather for any location below:  </h1>
           {/*<h1>My bending style is: {bendingStyle} </h1>*/}
 
-          <h2>  Good {timeOfDay}. The current time is {hours%12}:{mins}:{secs} {ampm} </h2>
+          <h3> Good {timeOfDay} </h3>
+          <div className = "location-box">
+            <div className = "location"> New York City </div>
+            <div className = "date"> {showDate(new Date())} </div>
+            <div className = "time"> {hours%12}:{mins}:{secs} {ampm}</div>
+          </div>
+
           {/*<img src = "LionGrass.jpg" alt = "LionGrass"/>*/}
           {/*<img src="https://picsum.photos/200/300" alt = "randomINternetImg" />*/}
             <form onSubmit = {this.handleSubmit}>
               <label>
-                <input type = "text" placeholder = "search location" value = {bendingStyle}
+                <input type = "text" placeholder = "search location" className = "search-box" value = {bendingStyle}
                   name = "textBox" onChange = {this.handleInputChange} />
               </label>
               <input type = "submit" value = "Submit" />
             </form>
 
-            <div className = "location-box">
-              <div className = "location"> New York City </div>
-              <div className = "date"></div>
-            </div>
 
             <p><a href="#"> Jump back to top. </a></p>
 
